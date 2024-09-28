@@ -14,7 +14,8 @@ In this tutorial, you will be guided through the process of setting up an Arch L
 5. Creating an Arch Linux Droplet
 6. Connecting to Your Droplet via SSH
 7. Automating Setup with cloud-init
-8. Citations
+8. Create SSH Config File
+9. Citations
 
 >Note: Before starting, ensure you have the following:
     A DigitalOcean account
@@ -62,7 +63,7 @@ For MacOS users:
 ```
 pbcopy < ~/.ssh/do-key.pub
 ```
-//screenshot
+
 
 For Linux users it depends on your system. For me it is:
 ```
@@ -83,13 +84,23 @@ Then select the link with "cloudimg". The ".qcow2" and download the most recent 
 <img src = "./assets/arch linux_imagelink.jpg">
 
 ---
-Go to the Images section of the DigitalOcean Control Panel.
-Click Upload Image and select the Arch Linux image you downloaded.
-Wait for the image to upload and become available.
+To upload a custom Arch Linux image to your DigitalOcean account:
+
+Go to the images section of the DigitalOcean Control Panel.
+
+>Note Once you do so, you will see that there are multiple tabs including Snapshots, Backups, and Custom Images.
+
+Click on custom images to upload a new one.
+
+Click the upload image button and select the arch linux file you downloaded.
+
+Once the upload is complete, you will now have your Arch linux file uploaded onto Digitalocean.
+
 
 ## Creating an Arch Linux Droplet
 
 Steps to Create a Droplet:
+
 Find the Create Button: In the upper right corner of the screen, you should see a green Create button. If it’s not visible, navigate to a different section using the left menu, and the button should reappear.
 
 Click the green Create button, and a dropdown menu will appear.
@@ -151,7 +162,12 @@ Install essential packages.
 Set up your SSH key for the new user.
 Disable root SSH access for security.
 Creating the cloud-init File
-Create a cloud-init.yaml file with the following content:
+
+To create a Cloud-Init configuration file, run code: 
+```
+nvim cloud-init.yml
+```
+Once you run the code, Add the following content to the file:
 ```
 #cloud-config
 users:
@@ -162,9 +178,16 @@ users:
     ssh-authorized-keys:
       - ssh-rsa AAAAB3...your_public_key_here
 packages:
-  - vim
-  - curl
-  - git
+  - ripgrep
+  - rsync
+  - neovim
+  - fd
+  - less
+  - man-db
+  - bash-completion
+  - tmux
+
+
 ssh_pwauth: false
 ```
 
