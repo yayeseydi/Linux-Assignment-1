@@ -101,58 +101,64 @@ Once the upload is complete, you will now have your Arch linux file uploaded ont
 
 Steps to Create a Droplet:
 
- Click the green create button in the upper right corner of the screen. If it’s not visible, navigate to a different section using the left menu, and the button should reappear.
+Click the green Create button at the top of the screen.
+
+From the dropdown menu, select Droplets.
 
 Click the green Create button, and a dropdown menu will appear.
-Select Droplets from the dropdown. 
+
+From the dropdown menu, select Droplets.
 
 <img src = "./assets/create_droplet screenshot.jpg">
 ---
 
-This will take you to a screen where you can configure your new droplet.
-Configure Important Settings: You’ll now see various options for your droplet’s configuration. Follow these steps to ensure your droplet is properly set up:
+configure Droplet Settings:
 
-
-Choose a Data Center Region:
-
-Set Region to San Francisco (SF03). 
+You’ll be taken to the configuration page where you can set up your new droplet.
+Choose Data Center Region:
+Under Choose a Data Center Region, select San Francisco (SF03) as the location.
 
 <img src = "./assets/choose_region.jpg">
 
----
-Choose an Image:
 
-Under Choose an Image, select the Custom Images tab.
-Your custom Arch Linux image should appear here. Select it.
+This will take you to a screen where you can configure your new droplet.
 
-Choose a Size:
+Select a Custom Image:
 
-Leave the default Basic plan selected unless you need more resources. 
-For CPU options, you can choose the $7 Premium AMD option or the $8 Premium Intel option depending on your needs.
+Under Choose an Image, go to the Custom Images tab.
+Select your custom Arch Linux image from the list.
+
+Choose Droplet Size:
+
+Leave the default Basic Plan selected unless more resources are needed
 
 <img src = "./assets/basic_plan screenshot.jpg">
 
-Authentication Method:
+---
 
-Under Choose Authentication, select SSH Key and then choose the SSH key you added to your DigitalOcean account in the previous steps.
-Hostname:
+Set Authentication Method:
 
-Create a hostname for your droplet.  This name will appear in your terminal prompt when you are connected to your server.
-You can leave the remaining settings at their defaults.
+Under Choose Authentication, select SSH Key.
+Choose the SSH key you added to your DigitalOcean account in the previous steps.
+Set a Hostname:
 
-Once all the settings are configured, click Create Droplet at the bottom of the screen.
-Find Your Droplet's IP Address:
+Create a Hostname for your droplet. This will appear in your terminal prompt when connected.
+Leave the remaining settings at their defaults.
+Create the Droplet:
 
-After the droplet has been created, it will appear in your DigitalOcean dashboard.
-Copy the IP address of your droplet, as you’ll need it to connect via SSH.
+After configuring the settings, click the Create Droplet button at the bottom of the page.
+Find Your Droplet’s IP Address:
+
+Once the droplet is created, it will appear in your DigitalOcean dashboard.
+Copy the IP address of your droplet, which you’ll need for the next step.
 Connecting to Your Droplet via SSH
-To connect to your droplet via SSH, find your Droplet's IP address in the DigitalOcean Control Panel.
-Open your terminal and connect using the following command:
-bash
+Find your droplet's IP address in the DigitalOcean control panel.
+
+Open your terminal and connect to your droplet using the following command:
+
 ```
 ssh -i .ssh/do-key arch@your-droplets-ip-address
 ```
-If your key is correctly configured, you should be logged in without a password.
 
 ## Automating Setup with cloud-init
 
@@ -210,12 +216,21 @@ Once those are replaced, you can run the command and receive a public key front 
 You should now have cloud init running  on your server.
 
 ## Creating an SSH Config File
-
 What is an SSH Config file?
 SSH config files are used to simplify SSH connections after the server has been set up.
+
 To set up an SSH Configeration 
 
-When you open your terminal, typing in 
+Open your twerminal and type in the command 
+
+```
+ssh arch
+```
+It should look something like this after running it.
+
+<img src = "./assets/ssh_screenshot.jpg">
+
+Once you run that command, type is:
 ```
 cd ~/.ssh
 ```
@@ -241,10 +256,8 @@ Host arch
   HostName github.com
   ```
 
-
-
 ## Conclusion 
 
-Congratulations! You’ve successfully set up an Arch Linux server on DigitalOcean, created SSH keys, automated its initial setup using cloud-init, and connected to it using SSH.
+Congratulations! You’ve successfully set up an Arch Linux server on DigitalOcean, created SSH keys, automated its initial setup using cloud-init, connected to it using SSH, and creaing an SSH config file.
 
 
