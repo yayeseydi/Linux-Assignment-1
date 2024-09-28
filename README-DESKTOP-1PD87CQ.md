@@ -101,7 +101,7 @@ Once the upload is complete, you will now have your Arch linux file uploaded ont
 
 Steps to Create a Droplet:
 
- Click the green create button in the upper right corner of the screen. If it’s not visible, navigate to a different section using the left menu, and the button should reappear.
+Find the Create Button: In the upper right corner of the screen, you should see a green Create button. If it’s not visible, navigate to a different section using the left menu, and the button should reappear.
 
 Click the green Create button, and a dropdown menu will appear.
 Select Droplets from the dropdown. 
@@ -215,36 +215,11 @@ What is an SSH Config file?
 SSH config files are used to simplify SSH connections after the server has been set up.
 To set up an SSH Configeration 
 
-When you open your terminal, typing in 
-```
-cd ~/.ssh
-```
-This will take you to your SSH Directory
-
-You can open and edit the config file typing 
-```
-code config
-```
-Go ahead and paste the following command
-
-```
-Here is an example of 
-Host arch
-  HostName 143.198.140.15
-  User arch
-  PreferredAuthentications publickey
-  IdentityFile ~/.ssh/do-key
-  StrictHostKeyChecking no
-  UserKnownHostsFile /dev/null
-  #github (This is just an example)
-  Host github.com
-  HostName github.com
-  ```
-
 
 
 ## Conclusion 
 
 Congratulations! You’ve successfully set up an Arch Linux server on DigitalOcean, created SSH keys, automated its initial setup using cloud-init, and connected to it using SSH.
 
+## Citations
 
